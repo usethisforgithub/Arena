@@ -25,10 +25,11 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 	
 	private BufferedImage background;
 	
-	private int windowX, windowY, playerID;
+	private int windowX, windowY;
 	
 	
 	private ArrayList<Character> characterList;
+	private Character myCharacter;
 	
 	
 	
@@ -36,11 +37,12 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 	
 
 	
-	public ArenaWindow(BufferedImage bg, ArrayList<Character> charlist, int pid){
+	public ArenaWindow(BufferedImage bg, ArrayList<Character> charlist, int playerID){
 		super();
 		
-		playerID = pid;
+		
 		characterList = charlist;
+		myCharacter = characterList.get(playerID);
 		
 		
 		
@@ -72,7 +74,6 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 		isDone = false;
 		this.setUndecorated(true);
 		this.setVisible(true);
-		
 		this.setResizable(false);
 		
 		
