@@ -7,6 +7,7 @@ public class Character {
 	private int[] currentAnimationSequence;
 	private int moveSpeed, poseControl, xpos, ypos;
 	private String facing;
+	//String[] moveSet;
 	
 	private final int[] walkingRight = {34,35,36,37,38,39};
 	private final int[] walkingLeft = {14,15,16,17,18,19};
@@ -21,7 +22,7 @@ public class Character {
 	private final int[] standingUp = {4};
 	private final int[] standingDown = {24};
 	
-	public Character(){
+	public Character(BufferedImage[] im, String fa, int ms, int x, int y ){
 		
 	}
 	

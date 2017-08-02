@@ -13,6 +13,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
+import java.util.ArrayList;
 
 
 
@@ -27,21 +28,9 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 	private int windowX, windowY;
 	
 	
+	private ArrayList<Character> characterList;
 	
 	
-	private int[] currentAnimationSequence;
-	private int[] walkingRight = {34,35,36,37,38,39};
-	private int[] walkingLeft = {14,15,16,17,18,19};
-	private int[] walkingUp = {4,5,6,7,8,9};
-	private int[] walkingDown = {24,25,26,27,28,29};
-	private int[] attackingRight = {30,31,32,32,33,34,34,34};
-	private int[] attackingLeft = {10,11,12,12,13,14,14,14};
-	private int[] attackingUp = {0,1,2,2,3,4,4,4};
-	private int[] attackingDown = {20,21,22,22,23,24,24,24};
-	private int[] standingLeft = {14};
-	private int[] standingRight = {34};
-	private int[] standingUp = {4};
-	private int[] standingDown = {24};
 	
 	
 	
@@ -49,12 +38,12 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 	
 	public ArenaWindow(BufferedImage bg){
 		super();
+		characterList = new ArrayList<Character>();
 		
 		
+		Character c = new Character(SpriteSheet.getAsArray("spider03.png", 10, 5, 64, 64),"RIGHT",5,0,0);
+		characterList.add(c);
 		
-		
-		
-		currentAnimationSequence = walkingRight;
 		
 		
 		background = bg;
