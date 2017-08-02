@@ -5,7 +5,7 @@ public class Character {
 
 	private BufferedImage[] images;
 	private int[] currentAnimationSequence;
-	private int moveSpeed, poseControl, xpos, ypos;
+	private int moveSpeed, poseControl, xpos, ypos,ID;
 	private String facing;
 	//String[] moveSet;
 	
@@ -22,7 +22,27 @@ public class Character {
 	private final int[] standingUp = {4};
 	private final int[] standingDown = {24};
 	
-	public Character(BufferedImage[] im, String fa, int ms, int x, int y ){
+	public Character(BufferedImage[] im, String fa, int ms,int id, int x, int y ){
+		images = im;
+		facing = fa;
+		moveSpeed = ms;
+		ID = id;
+		xpos = x;
+		ypos = y;
+	
+		poseControl = 0;
+		if(facing.equals("RIGHT")){
+			currentAnimationSequence = standingRight;
+		}
+		if(facing.equals("LEFT")){
+			currentAnimationSequence = standingLeft;
+		}
+		if(facing.equals("UP")){
+			currentAnimationSequence = standingUp;
+		}
+		if(facing.equals("DOWN")){
+			currentAnimationSequence = standingDown;
+		}
 		
 	}
 	
@@ -40,6 +60,10 @@ public class Character {
 	
 	public int getPoseControl(){
 		return poseControl;
+	}
+	
+	public int getID(){
+		return ID;
 	}
 	
 	public int getxpos(){

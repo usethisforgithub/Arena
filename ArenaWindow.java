@@ -5,7 +5,7 @@ import java.awt.Frame;
 import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.RenderingHints;
-
+import java.awt.Toolkit;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -25,7 +25,7 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 	
 	private BufferedImage background;
 	
-	private int windowX, windowY;
+	private int windowX, windowY, playerID;
 	
 	
 	private ArrayList<Character> characterList;
@@ -36,20 +36,21 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 	
 
 	
-	public ArenaWindow(BufferedImage bg){
+	public ArenaWindow(BufferedImage bg, ArrayList<Character> charlist, int pid){
 		super();
-		characterList = new ArrayList<Character>();
+		
+		playerID = pid;
+		characterList = charlist;
 		
 		
-		Character c = new Character(SpriteSheet.getAsArray("spider03.png", 10, 5, 64, 64),"RIGHT",5,0,0);
-		characterList.add(c);
+		
 		
 		
 		
 		background = bg;
 		
-		windowX = 6 + background.getWidth();
-		windowY = 28 + background.getHeight();
+		windowX = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();//6 + background.getWidth();
+		windowY = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();//28 + background.getHeight();
 		
 		
 		
@@ -57,33 +58,6 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 		
 		
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-	
 		
 		
 		
@@ -96,6 +70,7 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 		this.setTitle("Title");
 		isRunning = true;
 		isDone = false;
+		this.setUndecorated(true);
 		this.setVisible(true);
 		
 		this.setResizable(false);
@@ -109,7 +84,7 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 		while(isRunning){
 			draw();
 			
-			
+			//System.out.println(Toolkit.getDefaultToolkit().getScreenSize().getWidth() + " x " + Toolkit.getDefaultToolkit().getScreenSize().getHeight());
 			
 			
 			
@@ -129,14 +104,16 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 		Graphics2D g2 = (Graphics2D)imgBuffer.getGraphics();
 		g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		//background color
-		g2.setColor(Color.white);
+		g2.setColor(Color.black);
 		g2.fillRect(0, 0, this.getWidth(), this.getHeight());
 				
 		
 		
-		g2.drawImage(background, 3, 25, null);
+		g2.drawImage(background, (this.getWidth()/2)-(background.getWidth()/2), (this.getHeight()/2)-(background.getHeight()/2), null);
 		
-			
+		for(int i = 0; i < characterList.size(); i++){
+			characterList.get(i).draw(g2);
+		}	
 		
 		g2 = (Graphics2D)this.getGraphics();
 		g2.drawImage(imgBuffer, 0, 0, this.getWidth(), this.getHeight(), 0, 0, this.getWidth(), this.getHeight(), null);
