@@ -14,6 +14,7 @@ public class Driver {
 		arena = ImageIO.read(new File("arena.png"));
 		
 		ArrayList<Character> c = new ArrayList<Character>();
+		c.add(new Character(SpriteSheet.getAsArray("spider03.png", 5, 10, 64, 64), "RIGHT", 5,0, 100, 100));
 		
 		ArenaWindow window = new ArenaWindow(arena,c,0);
 		new Thread(window).start();

@@ -72,7 +72,7 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 		this.setTitle("Title");
 		isRunning = true;
 		isDone = false;
-		this.setUndecorated(true);
+		this.setUndecorated(false);
 		this.setVisible(true);
 		this.setResizable(false);
 		
@@ -87,7 +87,9 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 			
 			//System.out.println(Toolkit.getDefaultToolkit().getScreenSize().getWidth() + " x " + Toolkit.getDefaultToolkit().getScreenSize().getHeight());
 			
-			
+			for(int i = 0; i < characterList.size(); i++) {
+				characterList.get(i).animate();
+			}
 			
 			
 			try{
