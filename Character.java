@@ -10,18 +10,18 @@ public class Character {
 	private String facing;
 	//String[] moveSet;
 	
-	public final int[] walkingRight = {34,35,36,37,38,39};
-	public final int[] walkingLeft = {14,15,16,17,18,19};
-	public final int[] walkingUp = {4,5,6,7,8,9};
-	public final int[] walkingDown = {24,25,26,27,28,29};
-	public final int[] attackingRight = {30,31,32,32,33,34,34,34};
-	public final int[] attackingLeft = {10,11,12,12,13,14,14,14};
-	public final int[] attackingUp = {0,1,2,2,3,4,4,4};
-	public final int[] attackingDown = {20,21,22,22,23,24,24,24};
-	public final int[] standingRight = {34};
-	public final int[] standingLeft = {14};
-	public final int[] standingUp = {4};
-	public final int[] standingDown = {24};
+	public static final int[] walkingRight = {34,35,36,37,38,39};
+	public static final int[] walkingLeft = {14,15,16,17,18,19};
+	public static final int[] walkingUp = {4,5,6,7,8,9};
+	public static final int[] walkingDown = {24,25,26,27,28,29};
+	public static final int[] attackingRight = {30,31,32,32,33,34,34,34};
+	public static final int[] attackingLeft = {10,11,12,12,13,14,14,14};
+	public static final int[] attackingUp = {0,1,2,2,3,4,4,4};
+	public static final int[] attackingDown = {20,21,22,22,23,24,24,24};
+	public static final int[] standingRight = {34};
+	public static final int[] standingLeft = {14};
+	public static final int[] standingUp = {4};
+	public static final int[] standingDown = {24};
 	
 	public Character(BufferedImage[] im, String fa, int ms,int id, int x, int y ){
 		images = im;

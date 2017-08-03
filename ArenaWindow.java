@@ -188,7 +188,32 @@ public class ArenaWindow extends Frame implements WindowListener, Runnable, KeyL
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-	
+		//right arrow
+		if(e.getKeyCode() == 39){
+			myCharacter.setNextAnimationSequence(Character.walkingRight);
+		}
+		//left arrow
+		if(e.getKeyCode() == 37){
+			myCharacter.setNextAnimationSequence(Character.walkingLeft);
+		}
+		//up arrow
+		if(e.getKeyCode() == 38){
+			myCharacter.setNextAnimationSequence(Character.walkingUp);
+		}
+		//down arrow
+		if(e.getKeyCode() == 40){
+			myCharacter.setNextAnimationSequence(Character.walkingDown);
+		}
+		
+		//spacebar
+		if(e.getKeyCode() == 32){
+			myCharacter.setNextAnimationSequence(Character.walkingRight);
+		}
+			
+			
+			
+		
+		
 		
 	}
 
